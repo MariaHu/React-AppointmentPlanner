@@ -19,24 +19,24 @@ function App() {
      setContact((prev) => (
          [ ...prev,
           
-         {  name: name,
-            phoneNumber: phone,
-            email: email
+         {   name,
+            phone,
+             email
 }
           
 
      ]));
   };
 
-  const addAppointment = (name, contact, date, time) => {
+  const addAppointment = (title, contact, date, time) => {
    
     setAppointment((prev) => ([
          ...prev,
          {
-          name: name,
-           contact: contact,
-           date: date,
-           time:time
+          title,
+         contact,
+          date,
+           time
 }
          
 

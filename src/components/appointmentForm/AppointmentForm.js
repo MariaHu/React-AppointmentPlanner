@@ -11,34 +11,31 @@ const getTodayString = () => {
 export const AppointmentForm = ({
   contacts,
   title,
-  handleChange,
+ setTitle,
   contact,
-  
+  setContact,
   date,
-  
+  setDate,
   time,
-  
+  setTime,
   handleSubmit
 }) => {
 
   return (
-    <form onSubmit={handleSubmit }>
-      <label for="title">Title</label>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="title">Title</label>
      <br/>
-      <input type="text" value={title} onChange={handleChange}/>
+      <input type="text" value={title} onChange={(e) => {setTitle(e.target.value)}} required/>
       <br/>
-     <label for="contact">Name</label>
-     <br/>
-      <input type="text" value={contact} onChange={handleChange}/>
+     
+      <label htmlFor="date">Date </label>
       <br/>
-      <label for="date">Date </label>
+      <input type="date" value={date} onChange={(e) =>{ setDate(e.target.value)}} required/>
       <br/>
-      <input type="date" value={date} onChange={handleChange}/>
+      <label htmlFor="time">Time</label>
       <br/>
-      <label for="time">Time</label>
-      <br/>
-      <input type="time" value={time} min={getTodayString()} onChange={handleChange}/>
-      <ContactPicker contacts={contacts} onChange={handleChange} contact={contact}/>
+      <input type="time" value={time} min={getTodayString()} onChange={(e) => {setTime(e.target.value)}} required/>
+      <ContactPicker contacts={contacts} onChange={(e) =>{setContact(e.target.value)}} name='contact' contact={contact}/>
       {console.log(contacts) }
       <input type="submit" value='Submit'/>
     </form>

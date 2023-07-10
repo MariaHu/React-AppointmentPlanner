@@ -11,18 +11,18 @@ export const ContactForm = ({
 }) => {
   return (
     <form onSubmit = {handleSubmit}>
-      <label for="name">Name</label>
+      <label htmlFor="name">Name</label>
       <input type="text" id="name" name="name" 
       value={name}
       onChange={(e) => {setName(e.target.value)}}/>
       <br/>
-      <label for="phone">Phone Number</label>
+      <label htmlFor="phone">Phone Number</label>
       <input type="text" id="phone" name="phone" 
       value={phone}
-      pattern=' ^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$'
+      /*pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}" */
       onChange={(e) => {setPhone(e.target.value)}}/>
       <br/>
-      <label for="email">Email</label>
+      <label htmlFor="email">Email</label>
       <input type="text" id="email" name="email" 
       value={email}
       onChange={(e) => {setEmail(e.target.value)}}/>

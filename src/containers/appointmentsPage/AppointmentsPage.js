@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export const AppointmentsPage = ({appointments, contacts, setAppointment}) => {
+export const AppointmentsPage = ({appointments, contacts, addAppointment}) => {
   const [title, setTitle] = useState('');
-  const [name, setName] = useState('');
+  const [contact, setContact] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
-  
+  /*
 
   const handleChange=({target})=>{
     let reference = target.id;
@@ -30,20 +30,23 @@ export const AppointmentsPage = ({appointments, contacts, setAppointment}) => {
     }
   }
 
+  */
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    let newAppointment = {
+    /*let newAppointment = {
          title: title,
-         name: name,
+         contact: contact,
          date: date,
          time:time
 
-    };
-    setAppointment(newAppointment);
-    setTitle(title);
-    setName(name);
-    setDate(date);
-    setTime(time);
+    }; */
+    alert("Appointment in creation");
+    addAppointment(title, contact, date, time);
+    setTitle('');
+    setContact('');
+    setDate('');
+    setTime('');
   };
 
   return (
@@ -52,19 +55,21 @@ export const AppointmentsPage = ({appointments, contacts, setAppointment}) => {
         <h2>Add Appointment</h2>
         <AppointmentForm 
         title={title}
+        setTitle={setTitle}
         contacts ={contacts}
-        name={name}
-        
+        contact={contact}
+        setContact={setContact}
         date={date}
-        
+        setDate={setDate}
         time={time}
-        onChange= {handleChange}
-        onSubmit={handleSubmit}/>
+        setTime={setTime}
+        
+        handleSubmit={handleSubmit}/>
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList array={appointments} contacts={contacts}/>
+        <TileList list={appointments} />
       </section>
     </div>
   );
